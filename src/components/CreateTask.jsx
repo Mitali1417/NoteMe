@@ -14,7 +14,6 @@ const CreateTask = () => {
   const handleAddTask = () => {
     if (title === "" || description === "") {
       alert("Please fill the details");
-      navigate("/create");
     } else {
       const date = new Date().toLocaleString();
       addTask(title, description, date);
@@ -48,7 +47,7 @@ const CreateTask = () => {
             modules={modules}
             placeholder="Description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={setDescription}
             cols="30"
             rows="10"
             required

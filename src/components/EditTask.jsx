@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { styles } from "../style/tailwindStyles";
 import { useNavigate, useParams } from "react-router-dom";
 import { editTask, deleteTask, getTaskById } from "../utils/task";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { modules, formats } from "../style/quillStyles";
 
 const EditTask = () => {
   const { id } = useParams();
@@ -18,9 +21,13 @@ const EditTask = () => {
   }, [id]);
 
   const handleEditTask = () => {
-    const date = new Date().toLocaleString();
-    editTask(id, title, description, date);
-    navigate("/");
+    if (title === "" || description === "") {
+      alert("Please fill the details");
+    } else {
+      const date = new Date().toLocaleString();
+      editTask(id, title, description, date);
+      navigate("/");
+    }
   };
 
   const handleDeleteTask = () => {
@@ -29,13 +36,11 @@ const EditTask = () => {
   };
 
   return (
-    <div className={`p-[1rem] pt-0`}>
+    <div className="p-4 pt-0">
       <div
-        className={`${styles.background} ${styles.flexCenter} flex-col px-[4rem]`}
+        className={`${styles.background} ${styles.flexCenter} flex-col px-16`}
       >
-        <div
-          className={`${styles.flexBetween}  w-full text-[1.2rem] font-medium`}
-        >
+        <div className={`${styles.flexBetween} w-full text-lg font-medium`}>
           <input
             type="text"
             placeholder="Title"
@@ -43,31 +48,33 @@ const EditTask = () => {
             onChange={(e) => setTitle(e.target.value)}
             className={`${styles.input1}`}
           />
-          <div className={`w-full flex justify-end`}>
-            <button
-              type="button"
-              onClick={handleEditTask}
-              className={`${styles.btn2}`}
-            >
-              Save
-            </button>
-            <button
-              type="button"
-              onClick={handleDeleteTask}
-              className={`${styles.btn3} `}
-            >
-              Delete
-            </button>
-          </div>
         </div>
-        <div className={` text-white/80 w-full my-[0.5rem] text-[1.2rem]`}>
-          <textarea
-            cols="30"
-            rows="10"
+        <div className="text-white/80 w-full my-2 text-lg">
+          <ReactQuill
+            theme="snow"
+            formats={formats}
+            modules={modules}
+            placeholder="Description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className={`min-h-[55vh] w-full box-shadow ${styles.input2}`}
-          ></textarea>
+            onChange={setDescription}
+            className={`${styles.input2} min-h-[55vh] resize-none w-full box-shadow`}
+          />
+        </div>
+        <div className="w-full flex justify-end space-x-4">
+          <button
+            type="button"
+            onClick={handleEditTask}
+            className={`${styles.btn2}`}
+          >
+            Save
+          </button>
+          <button
+            type="button"
+            onClick={handleDeleteTask}
+            className={`${styles.btn3}`}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
