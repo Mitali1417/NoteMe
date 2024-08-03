@@ -1,6 +1,7 @@
 export const styles = {
-  boxWidth: "",
-  paddingX: "px-[5rem]",
+  boxWidth: "max-w-[1440px] w-full mx-auto",  
+  // mainContainer: "max-w-[1440px] w-full mx-auto px-[1rem] md:px-[5rem]",
+  paddingX: "px-[1rem] md:px-[5rem]",
   paddingY: "",
   marginX: "",
   marginY: "",

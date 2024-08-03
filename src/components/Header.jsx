@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <div className={`${styles.flexCenter} w-full`}>
       <div
-        className={`${styles.flexBetween} fixed top-[1rem] w-[80vw] p-[0.6rem] px-[1.5rem] rounded-full bg-darkPrimary/70 box-shadow-2  text-white `}
+        className={`${styles.flexBetween} fixed top-[1rem] w-[80%] max-w-[1440px] p-[0.6rem] px-[1.5rem] rounded-full bg-darkPrimary/70 box-shadow-2  text-white `}
       >
         <div className={`w-full`}>
           <h3 className={`font-semibold text-[1.5rem] `}>

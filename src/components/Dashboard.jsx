@@ -61,7 +61,7 @@ const Dashboard = () => {
         } `}
       >
         <div
-          className={`${styles.paddingX} flex justify-start flex-wrap w-full`}
+          className={`${styles.paddingX} flex justify-center md:justify-start flex-wrap w-full`}
         >
           {tasks.length === 0 ? (
             <Hero />
@@ -69,7 +69,7 @@ const Dashboard = () => {
             tasks.map((task) => (
               <div
                 key={task.id}
-                className={` ${styles.card1} relative box-shadow-3 w-[30%] h-[10rem] m-2`}
+                className={` ${styles.card1} relative box-shadow-3 w-[100%] xl:w-[30%] h-[10rem] m-2`}
               >
                 <div className={`${styles.flexBetween} relative`}>
                   <h4 className="text-[1.4rem] text-white/50 font-medium truncate">

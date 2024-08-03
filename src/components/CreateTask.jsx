@@ -26,7 +26,7 @@ const CreateTask = () => {
   return (
     <div className="p-[1rem] pt-0">
       <div
-        className={`${styles.background} ${styles.flexCenter} flex-col px-[4rem]`}
+        className={`${styles.background} ${styles.flexCenter} flex-col px-[1rem] md:px-[4rem]`}
       >
         <div
           className={`${styles.flexBetween} w-full text-[1.2rem] font-medium`}

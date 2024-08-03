@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  box-sizing: border-box;
+}
+
 :root {
   --darkPrimary: #011c3b;
   --primary: #02234a;
@@ -21,6 +25,10 @@
 
 body {
   min-height: 100vh;
+  width: 100%;
+  display: flex;
+  place-content: center;
+  flex-direction: column;
 }
 
 ::selection {
