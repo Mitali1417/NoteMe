@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --darkPrimary: #011c3b;
+  --primary: #02234a;
+  --green1: #5AA7A7;
+  --green2: #96D7C6;
+  --brightGreen1: #BAC94A;
+  --brightGreen2: #E2D36B;
+  --blue: #6C8CBF;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  background-color: #01152c;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--green1);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--green1);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #5aa7a779;
+}
+
+
+
+.header-shadow {
+  box-shadow: 10px 7px 20px #96d7c61e;
+}
+
+.box-shadow {
+  box-shadow: 10px 5px 25px #191a1965;
+  transition: all 500ms ease-in-out;
+}
+
+.box-shadow:hover {
+  box-shadow: 10px 5px 25px #96d7c61e;
+}
+
+.box-shadow-2 {
+  box-shadow: 10px 2px 25px #191a1965;
+}
+
+.box-shadow-3 {
+  /* box-shadow: 10px 5px #ffffff65; */
+  transition: all 500ms ease-in-out;
+}
+
+.box-shadow-3:hover {
+  box-shadow: 0.7rem -0.7rem 0rem 0.2rem #96d7c685, 0 0 0rem 0.4rem var(--blue), -0.7rem 0.7rem 0rem 0.2rem var(--brightGreen1);
+
+}
+
+.background {
+  min-height: calc(100vh - 1rem);
+  height: 100%;
+}
+
+.slide-in {
+  animation: slide-in 700ms ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.slide-out {
+  animation: slide-out 700ms ease-in-out forwards;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+/* React quill customizations */
+.ql-snow .ql-stroke {
+  stroke: white
+}
+
+.ql-snow .ql-stroke:hover {
+  stroke: #bfbfbf !important;
+}
+
+.ql-toolbar {
+  background-color: #02224a9d;
+  border: none !important;
+}
+
+.ql-picker-label,
+.ql-picker-item {
+  color: white;
+  stroke: white;
+}
+
+.ql-picker-label:hover,
+.ql-picker-item:hover {
+  color: #bfbfbf !important;
+}
+
+.ql-picker-label:hover,
+.ql-picker-item:hover {
+  color: white;
+  stroke: white;
+}
+
+.ql-editor h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.ql-editor h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.ql-editor h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.ql-editor::before {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.ql-container {
+  height: 55vh;
+}
+
+.ql-container.ql-snow {
+  border: none;
+}
+
+.ql-editor {
+  min-height: 50vh;
+  overflow-y: auto;
+  /* background: var(--brightGreen1); */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
