@@ -135,10 +135,14 @@ body {
   background-color: #02224a9d;
   border: none !important;
 }
+.ql-picker{
+  /* background-color: #01152c; */
+}
 
 .ql-picker-label,
 .ql-picker-item {
-  color: white;
+  /* color: white; */
+  /* background-color: #01152c; */
   stroke: white;
 }
 

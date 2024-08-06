@@ -48,9 +48,10 @@ const Dashboard = () => {
   }, []);
 
   const truncateDescription = (description, maxLength) => {
-    return description.length > maxLength
-      ? description.substring(0, maxLength) + "..."
-      : description;
+    const plainDescription = description.replace(/<([^>]+)>/g, "");
+    return plainDescription.length > maxLength
+      ? plainDescription.substring(0, maxLength) + "..."
+      : plainDescription;
   };
 
   return (

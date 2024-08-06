@@ -9,6 +9,9 @@ export const styles = {
   flexStart: "flex justify-center items-start",
   flexBetween: "flex justify-between items-center",
 
+  authHead: "font-semibold text-[2.5rem]",
+  authText: "font-medium text-[1rem] text-blue",
+  authInput:"w-full bg-blue/5 focus:bg-white/5 px-[1.2rem] py-[0.5rem] rounded-full outline outline-[0.1rem] transition-all duration-500 ease-in-out text-white my-[0.2rem]",
   background:
     "bg-gradient-to-t background from-green1/40 via-primary w-full rounded-lg ",
   btn1: "font-medium px-[1.6rem] py-[0.5rem] bg-gradient-to-tr from-green1 to-brightGreen1 hover:bg-gradient-to-tr hover:from-green1/60 hover:to-brightGreen1/60 font-semibold rounded-full transition-all duration-500 ease-in-out",

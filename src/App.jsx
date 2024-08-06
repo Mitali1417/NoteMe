@@ -1,5 +1,5 @@
 import React from "react";
-import AllRoutes from "./AllRoutes";
+import AllRoutes from "./routes/AllRoutes";
 import { styles } from "./style/tailwindStyles";
 
 const App = () => {
