@@ -9,6 +9,7 @@ const Signup = () => {
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
+        username: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -18,6 +19,7 @@ const Signup = () => {
         try {
           localStorage.setItem("signupData", JSON.stringify(values));
           console.log("Signup successful: ", values);
+          localStorage.setItem("isAuthenticated", "true");
           navigate("/");
         } catch (error) {
           console.error("There was an error signing up: ", error);
@@ -28,9 +30,9 @@ const Signup = () => {
   return (
     <div className={`${styles.flexCenter} relative `}>
       <div
-        className={`${styles.flexCenter} ${styles.paddingX} box-shadow-2 z-10 flex-row w-[80vw] min-h-[80vh] h-[90vh] bg-darkPrimary/60 rounded-2xl backdrop-blur-xl `}
+        className={`${styles.flexCenter} flex-col xxl:flex-row px-[4rem] sm:px-[3.5rem] md:px-[4rem] box-shadow-2 z-10 w-[90vw] sm:w-[80vw] min-h-[80vh] h-[90vh] bg-darkPrimary/60 rounded-2xl backdrop-blur-xl `}
       >
-        <div className={`${styles.flexCenter} flex-col w-full h-full`}>
+        <div className={`${styles.flexCenter} flex-col w-full`}>
           <h3
             className={`font-bold leading-[5rem] text-[2.4rem] md:text-[2.7rem] bg-gradient-to-tr from-green1 to-brightGreen1 text-transparent bg-clip-text `}
           >
@@ -44,6 +46,25 @@ const Signup = () => {
           onSubmit={handleSubmit}
           className={`${styles.flexBetween} ${styles.paddingX} ${styles.authText} mt-[2rem] flex-col w-full`}
         >
+          <div className={`w-full mt-[1rem]`}>
+            <label htmlFor="email">Username</label>
+            <input
+              value={values.username}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder="Enter your name"
+              className={`${styles.authInput} ${
+                errors.username && touched.username
+                  ? "outline-red-600"
+                  : "outline-blue"
+              }`}
+              type="username"
+              id="username"
+            />
+            {errors.username && touched.username ? (
+              <div className="text-red-600">{errors.email}</div>
+            ) : null}
+          </div>
           <div className={`w-full mt-[1rem]`}>
             <label htmlFor="email">Email</label>
             <input
@@ -105,7 +126,7 @@ const Signup = () => {
           <button
             type="submit"
             on
-            className={`${styles.btn1} text-white mt-[2rem]`}
+            className={`${styles.gradientBtn1} text-white mt-[2rem]`}
           >
             Signup
           </button>

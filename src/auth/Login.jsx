@@ -22,6 +22,7 @@ const Login = () => {
           storedData.password === values.password
         ) {
           console.log("Login successful: ", values);
+          localStorage.setItem("isAuthenticated", "true");
           navigate("/");
         } else {
           alert("Invalid email or password.");
@@ -33,7 +34,7 @@ const Login = () => {
   return (
     <div className={`${styles.flexCenter} relative `}>
       <div
-        className={`${styles.flexCenter} ${styles.paddingX} box-shadow-2 z-10 flex-row w-[80vw] min-h-[70vh] h-full bg-darkPrimary/60 rounded-2xl backdrop-blur-xl `}
+        className={`${styles.flexCenter} flex-col xxl:flex-row px-[4rem] sm:px-[3.5rem] md:px-[4rem] box-shadow-2 z-10 w-[90vw] sm:w-[80vw] min-h-[70vh] h-full bg-darkPrimary/60 rounded-2xl backdrop-blur-xl `}
       >
         <div className={`${styles.flexCenter} flex-col w-full h-full`}>
           <h3
@@ -57,7 +58,9 @@ const Login = () => {
               onBlur={handleBlur}
               placeholder="Enter your email"
               className={`${styles.authInput} ${
-                errors.email && touched.email ? "outline-red-600" : "outline-blue"
+                errors.email && touched.email
+                  ? "outline-red-600"
+                  : "outline-blue"
               }`}
               type="email"
               id="email"
@@ -88,7 +91,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className={`${styles.btn1} text-white mt-[2rem]`}
+            className={`${styles.gradientBtn1} text-white mt-[2rem]`}
           >
             Login
           </button>

@@ -8,6 +8,9 @@ export const loginSchema = Yup.object().shape({
 });
 
 export const signupSchema = Yup.object().shape({
+  username: Yup.string()
+    .required("Required")
+    .min(3, "Username must be at least 3 characters"),
   email: Yup.string().email("Invalid email address").required("Required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")

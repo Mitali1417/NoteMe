@@ -6,6 +6,7 @@
 
 html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 :root {
@@ -31,6 +32,7 @@ body {
   flex-direction: column;
 }
 
+
 ::selection {
   background: var(--green1);
   color: white;
@@ -50,6 +52,13 @@ body {
   background-color: #5aa7a779;
 }
 
+.truncate-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 
 .header-shadow {
@@ -85,7 +94,14 @@ body {
 
 .box-shadow-4:hover {
   box-shadow: 0.7rem -0.7rem 0rem 0.2rem #96d7c6a0, 0 0 0rem 0.4rem var(--blue), -0.7rem 0.7rem 0rem 0.2rem var(--brightGreen1);
+}
 
+/* .box-shadow-5 {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.1);
+} */
+
+.box-shadow-5 {
+  box-shadow: 0px 7px 6px #27272716, 0px 5px 10px #1d1c1c16;
 }
 
 .background {
@@ -135,7 +151,8 @@ body {
   background-color: #02224a9d;
   border: none !important;
 }
-.ql-picker{
+
+.ql-picker {
   /* background-color: #01152c; */
 }
 
@@ -160,19 +177,19 @@ body {
 .ql-editor h1 {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #ffffff;
 }
 
 .ql-editor h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #ffffff;
 }
 
 .ql-editor h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #ffffff;
 }
 
 .ql-editor::before {
@@ -194,4 +211,52 @@ body {
   min-height: 50vh;
   overflow-y: auto;
   /* background: var(--brightGreen1); */
+}
+
+/* 
+  screens: {
+      xs: "240px",
+      sm: "480px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      xxl: "1440px",
+    },
+*/
+
+
+@media (min-width: 240px) {
+  html {
+    /* font-size: 40%; */
+  }
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    /* font-size: 40%; */
+  }
 }

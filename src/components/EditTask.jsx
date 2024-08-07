@@ -71,7 +71,7 @@ const EditTask = () => {
           <button
             type="button"
             onClick={handleDeleteTask}
-            className={`${styles.btn3}`}
+            className={`${styles.deleteBtn}`}
           >
             Delete
           </button>

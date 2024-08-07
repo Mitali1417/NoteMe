@@ -33,3 +33,10 @@ export const getTaskById = (id) => {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   return tasks.find((task) => task.id === parseInt(id));
 };
+
+export const truncateDescription = (description, maxLength) => {
+  const plainDescription = description.replace(/<([^>]+)>/g, "");
+  return plainDescription.length > maxLength
+    ? plainDescription.substring(0, maxLength) + "..."
+    : plainDescription;
+};
