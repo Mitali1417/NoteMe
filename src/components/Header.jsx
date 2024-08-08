@@ -66,7 +66,7 @@ const Header = ({ onSearch }) => {
           <img src={Search} className={`md:pr-[0rem] w-[2rem]`} alt="" />
         </div>
         <div
-          className={`w-[70%] md:w-full h-full flex justify-end sm:px-[1.5rem]`}
+          className={`w-[70%] md:w-full h-full flex justify-end items-center sm:px-[1.5rem]`}
         >
           <button
             onClick={() => navigate("/create")}

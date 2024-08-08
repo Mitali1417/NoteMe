@@ -39,7 +39,7 @@ const Signup = () => {
           >
             .note<span className={`text-white font-extrabold`}>me</span>
           </h3>
-          <h2 className={`${styles.authHead} text-[5rem] leading-[5rem]`}>
+          <h2 className={`${styles.authHead} leading-[5rem]`}>
             Signup
           </h2>
         </div>

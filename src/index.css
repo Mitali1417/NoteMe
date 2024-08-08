@@ -6,7 +6,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: 74%;
+  font-size: 85%;
 }
 
 :root {
@@ -230,12 +230,6 @@ body {
 */
 
 
-@media (min-width: 480px) {
-  html {
-    font-size: 80%;
-  }
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 90%;
@@ -243,12 +237,6 @@ body {
 }
 
 @media (min-width: 1024px) {
-  html {
-    font-size: 100%;
-  }
-}
-
-@media (min-width: 1280px) {
   html {
     font-size: 100%;
   }
