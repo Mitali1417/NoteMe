@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -28,11 +29,11 @@ const Signup = () => {
     });
 
   return (
-    <div className={`${styles.flexCenter} relative `}>
+    <div className={`${styles.flexCenter} relative`}>
       <div
-        className={`${styles.flexCenter} flex-col xxl:flex-row px-[4rem] sm:px-[3.5rem] md:px-[4rem] box-shadow-2 z-10 w-[90vw] sm:w-[80vw] min-h-[80vh] h-[90vh] bg-darkPrimary/60 rounded-2xl backdrop-blur-xl `}
+        className={`${styles.flexCenter} flex-col xl:flex-row px-[2rem] sm:px-[3.5rem] md:px-[4rem] box-shadow-2 z-10 w-[90vw] sm:w-[80vw] min-h-[70vh] h-full bg-darkPrimary/60 rounded-2xl backdrop-blur-xl py-[3rem] `}
       >
-        <div className={`${styles.flexCenter} flex-col w-full`}>
+        <div className={`${styles.flexCenter} flex-col w-full h-full`}>
           <h3
             className={`font-bold leading-[5rem] text-[2.4rem] md:text-[2.7rem] bg-gradient-to-tr from-green1 to-brightGreen1 text-transparent bg-clip-text `}
           >
@@ -44,10 +45,10 @@ const Signup = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className={`${styles.flexBetween} ${styles.paddingX} ${styles.authText} mt-[2rem] flex-col w-full`}
+          className={`${styles.flexBetween} ${styles.paddingX} ${styles.authText} mt-[2rem] flex-col w-full max-w-[25rem] sm:max-w-[60vw] lg:max-w-[50vw]`}
         >
           <div className={`w-full mt-[1rem]`}>
-            <label htmlFor="email">Username</label>
+            <label htmlFor="username">Username</label>
             <input
               value={values.username}
               onChange={handleChange}
@@ -58,11 +59,11 @@ const Signup = () => {
                   ? "outline-red-600"
                   : "outline-blue"
               }`}
-              type="username"
+              type="text"
               id="username"
             />
             {errors.username && touched.username ? (
-              <div className="text-red-600">{errors.email}</div>
+              <div className="text-red-600">{errors.username}</div>
             ) : null}
           </div>
           <div className={`w-full mt-[1rem]`}>
@@ -90,7 +91,7 @@ const Signup = () => {
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Enter your Password"
+              placeholder="Enter your password"
               className={`${styles.authInput} ${
                 errors.password && touched.password
                   ? "outline-red-600"
@@ -109,7 +110,7 @@ const Signup = () => {
               value={values.confirmPassword}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Confirm Password"
+              placeholder="Confirm password"
               className={`${styles.authInput} ${
                 errors.confirmPassword && touched.confirmPassword
                   ? "outline-red-600"
@@ -125,7 +126,6 @@ const Signup = () => {
 
           <button
             type="submit"
-            on
             className={`${styles.gradientBtn1} text-white mt-[2rem]`}
           >
             Signup
@@ -137,7 +137,7 @@ const Signup = () => {
             Already a user?{" "}
             <a href="/login" className={`font-medium text-green1 `}>
               Login here
-            </a>{" "}
+            </a>
           </p>
         </form>
       </div>

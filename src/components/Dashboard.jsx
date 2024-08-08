@@ -13,16 +13,33 @@ const Dashboard = () => {
   const [menu, setMenu] = useState(null);
   const [tasks, setTasks] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState("date");
+  const [showSortOptions, setShowSortOptions] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef(null);
-  
+  const sortRef = useRef(null);
+
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
-  
-  const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(searchTerm.toLowerCase())
-);
+
+  const handleSort = (order) => {
+    setSortOrder(order);
+    setShowSortOptions(false);
+  };
+
+  const filteredTasks = tasks
+    .filter((task) =>
+      task.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortOrder === "title") {
+        return a.title.localeCompare(b.title);
+      } else if (sortOrder === "date") {
+        return new Date(b.date) - new Date(a.date);
+      }
+      return 0;
+    });
 
   useEffect(() => {
     const tasks = getTasks();
@@ -42,13 +59,17 @@ const Dashboard = () => {
     };
   }, []);
 
-  const handleMenu = (taskId) => {
+  const handleMenu = (e, taskId) => {
+    e.stopPropagation();
     setMenu((prev) => (prev === taskId ? null : taskId));
   };
 
   const handleClickOutside = (e) => {
     if (menuRef.current && !menuRef.current.contains(e.target)) {
       setMenu(null);
+    }
+    if (sortRef.current && !sortRef.current.contains(e.target)) {
+      setShowSortOptions(false);
     }
   };
 
@@ -72,25 +93,52 @@ const Dashboard = () => {
         } `}
       >
         <div
-          className={`${styles.paddingX} flex justify-center md:justify-start flex-wrap w-full`}
+          className={`${styles.paddingX} flex justify-center md:justify-start flex-wrap w-full mx-auto`}
         >
           {tasks.length === 0 ? (
             <Hero />
           ) : (
             <>
-              <p
-                className={`w-full mb-[1rem] text-[1.9rem] text-white font-semibold flex justify-center`}
-              >
-                Hi,&nbsp;
-                <span className={`lowercase ${styles.gradientText}`}>
-                  {userProfile()} :)
-                </span>
-              </p>
+              <div className={`${styles.flexBetween} w-full`}>
+                <p
+                  className={`w-full mb-[1rem] text-[1.9rem] text-white font-semibold flex justify-center`}
+                >
+                  Hi,&nbsp;
+                  <span className={`lowercase ${styles.gradientText}`}>
+                    {userProfile()} :)
+                  </span>
+                </p>
+                <div className="relative" ref={sortRef}>
+                  <button
+                    className={`${styles.btn5}`}
+                    onClick={() => setShowSortOptions(!showSortOptions)}
+                  >
+                    Sort
+                  </button>
+                  {showSortOptions && (
+                    <div className="absolute right-0 mt-2 w-full bg-black/30 backdrop-blur-lg text-white border border-gray-700 transition-all duration-500 ease-in-out rounded-xl shadow-md z-20">
+                      <button
+                        className="block w-full px-4 py-2 text-left rounded-xl hover:bg-blue/50 transition-all duration-500 ease-in-out"
+                        onClick={() => handleSort("date")}
+                      >
+                        By Date
+                      </button>
+                      <button
+                        className="block w-full px-4 py-2 text-left rounded-xl hover:bg-blue/50 transition-all duration-500 ease-in-out"
+                        onClick={() => handleSort("title")}
+                      >
+                        By Title
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
               {filteredTasks.length > 0 ? (
                 filteredTasks.map((task) => (
                   <div
                     key={task.id}
-                    className={` ${styles.card1} relative box-shadow-3 w-[100%] sm:w-[45%] xl:w-[30%] h-[11rem] m-2`}
+                    onClick={() => handleShowTask(task.id)}
+                    className={` ${styles.card1} flex-auto relative box-shadow-3 w-[100%] sm:w-[45%] xl:w-[30%] h-[11rem] m-2`}
                   >
                     <div className={`${styles.flexBetween} relative`}>
                       <h4 className="text-[1.4rem] text-white/50 font-medium truncate">
@@ -100,14 +148,14 @@ const Dashboard = () => {
                         <img
                           src={Cross}
                           className="w-[1.6rem] z-10 transition-all duration-500 ease-in-out"
-                          onClick={() => handleMenu(task.id)}
+                          onClick={(e) => handleMenu(e, task.id)}
                           alt="cross"
                         />
                       ) : (
                         <img
                           src={Menu}
                           className="w-[1.5rem] z-10 transition-all duration-500 ease-in-out"
-                          onClick={() => handleMenu(task.id)}
+                          onClick={(e) => handleMenu(e, task.id)}
                           alt="menu"
                         />
                       )}

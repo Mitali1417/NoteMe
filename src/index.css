@@ -6,7 +6,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 74%;
 }
 
 :root {
@@ -30,6 +30,7 @@ body {
   display: flex;
   place-content: center;
   flex-direction: column;
+  overflow-x: hiddent;
 }
 
 
@@ -60,7 +61,6 @@ body {
   text-overflow: ellipsis;
 }
 
-
 .header-shadow {
   box-shadow: 10px 7px 20px #96d7c61e;
 }
@@ -84,7 +84,8 @@ body {
 }
 
 .box-shadow-3:hover {
-  box-shadow: 0.7rem -0.7rem 0rem 0.2rem #96d7c685, 0 0 0rem 0.4rem var(--blue), -0.7rem 0.7rem 0rem 0.2rem var(--brightGreen1);
+  transform: scale(0.95);
+  box-shadow: 0.5rem -0.5rem 0rem 0.2rem #93f0d785, 0 0 0rem 0.35rem var(--blue), -0.5rem 0.5rem 0rem 0.2rem var(--brightGreen1);
 
 }
 
@@ -96,17 +97,21 @@ body {
   box-shadow: 0.7rem -0.7rem 0rem 0.2rem #96d7c6a0, 0 0 0rem 0.4rem var(--blue), -0.7rem 0.7rem 0rem 0.2rem var(--brightGreen1);
 }
 
-/* .box-shadow-5 {
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.1);
-} */
 
 .box-shadow-5 {
   box-shadow: 0px 7px 6px #27272716, 0px 5px 10px #1d1c1c16;
+}
+.box-shadow-6 {
+  box-shadow: -10px -20px 15px 5px var(--darkPrimary);
+}
+.box-shadow-66 {
+  box-shadow: -10px 20px 15px 20px var(--darkPrimary) ;
 }
 
 .background {
   min-height: calc(100vh - 1rem);
   height: 100%;
+  padding-bottom: 1rem;
 }
 
 .slide-in {
@@ -225,12 +230,6 @@ body {
 */
 
 
-@media (min-width: 240px) {
-  html {
-    /* font-size: 40%; */
-  }
-}
-
 @media (min-width: 480px) {
   html {
     font-size: 80%;
@@ -252,11 +251,5 @@ body {
 @media (min-width: 1280px) {
   html {
     font-size: 100%;
-  }
-}
-
-@media (min-width: 1440px) {
-  html {
-    /* font-size: 40%; */
   }
 }

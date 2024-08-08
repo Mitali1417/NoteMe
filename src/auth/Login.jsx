@@ -32,9 +32,9 @@ const Login = () => {
     });
 
   return (
-    <div className={`${styles.flexCenter} relative `}>
+    <div className={`${styles.flexCenter} relative`}>
       <div
-        className={`${styles.flexCenter} flex-col xxl:flex-row px-[4rem] sm:px-[3.5rem] md:px-[4rem] box-shadow-2 z-10 w-[90vw] sm:w-[80vw] min-h-[70vh] h-full bg-darkPrimary/60 rounded-2xl backdrop-blur-xl `}
+        className={`${styles.flexCenter} flex-col xl:flex-row px-[2rem] sm:px-[3.5rem] md:px-[4rem] box-shadow-2 z-10 w-[90vw] sm:w-[80vw] min-h-[70vh] h-full bg-darkPrimary/60 rounded-2xl backdrop-blur-xl py-[3rem] `}
       >
         <div className={`${styles.flexCenter} flex-col w-full h-full`}>
           <h3
@@ -48,7 +48,7 @@ const Login = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className={`${styles.flexBetween} ${styles.paddingX} ${styles.authText} mt-[2rem] flex-col w-full`}
+          className={`${styles.flexBetween} ${styles.paddingX} ${styles.authText} mt-[2rem] flex-col w-full max-w-[25rem] sm:max-w-[60vw] lg:max-w-[50vw]`}
         >
           <div className={`w-full mt-[1rem]`}>
             <label htmlFor="email">Email</label>

@@ -44,11 +44,11 @@ const Header = ({ onSearch }) => {
       <div
         className={`${
           styles.flexBetween
-        } fixed z-30 top-[1rem] w-[90%] sm:w-[80%] max-w-[1440px] p-[0.6rem] px-[1.5rem] rounded-full ${
+        } fixed z-30 top-[1rem] w-[90%] sm:w-[80%] max-w-[1440px] p-[0.6rem] rounded-full ${
           isScrolled ? "bg-green1/10" : "bg-darkPrimary/70"
         }  backdrop-blur-3xl box-shadow-5 border-[0.1rem] border-white/10 text-white transition-all duration-500 ease-in-out `}
       >
-        <div className={`w-[70%] md:w-full`}>
+        <div className={`w-[70%] md:w-full px-[0.5rem] sm:px-[1.5rem]`}>
           <h3 className={`font-semibold text-[1.5rem]`}>
             .note<span className={`text-green1 font-extrabold`}>me</span>
           </h3>
@@ -65,10 +65,12 @@ const Header = ({ onSearch }) => {
           />
           <img src={Search} className={`md:pr-[0rem] w-[2rem]`} alt="" />
         </div>
-        <div className={`w-[70%] md:w-full h-full flex justify-end`}>
+        <div
+          className={`w-[70%] md:w-full h-full flex justify-end sm:px-[1.5rem]`}
+        >
           <button
             onClick={() => navigate("/create")}
-            className={`${styles.gradientBtn1} hidden md:flex`}
+            className={`${styles.gradientBtn1} hover:scale-95 hover:shadow-2xl hidden md:flex`}
           >
             Create
           </button>

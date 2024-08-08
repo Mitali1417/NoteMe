@@ -38,7 +38,7 @@ const EditTask = () => {
   return (
     <div className="p-4 pt-0">
       <div
-        className={`${styles.background} ${styles.flexCenter} flex-col px-16`}
+        className={`${styles.background} ${styles.flexCenter} flex-col ${styles.paddingX}`}
       >
         <div className={`${styles.flexBetween} w-full text-lg font-medium`}>
           <input

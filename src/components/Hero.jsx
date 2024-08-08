@@ -14,7 +14,9 @@ const Hero = () => {
         className={`w-full mb-[1rem] text-[2.5rem] text-white rounded-full flex items-center justify-center ml-4`}
       >
         Hi,&nbsp;
-        <span className={`lowercase text-rose-500 font-bold`}>{userProfile()} :)</span>
+        <span className={`lowercase text-rose-500 font-bold`}>
+          {userProfile()} :)
+        </span>
       </p>
       <p className={``}>Note everything that you want with</p>
       <h3

@@ -37,18 +37,32 @@ const ShowTask = () => {
 
   return (
     <div
-      className={`${styles.flexCenter} ${styles.paddingX} flex-col fixed inset-0 bg-black backdrop-blur-md bg-opacity-50 z-50 overflow-y-auto`}
+      className={`${styles.flexCenter} ${styles.paddingX} flex-col fixed inset-0 bg-black backdrop-blur-md bg-opacity-50 z-50 overflow-hidden`}
     >
       <div
-        className={`${styles.flexStart} flex-col relative bg-darkPrimary p-8 rounded-lg md:w-1/3 w-[80vw] md:max-w-[80vw] max-h-[80vh] overflow-y-auto shadow-lg`}
+        className={`${styles.flexStart} flex-col relative bg-darkPrimary p-8 rounded-lg w-[80vw] sm:w-[65vw] md:min-w-[50vw] md:max-w-[1200px] min-h-[20rem] max-h-[80vh] shadow-lg overflow-hidden`}
       >
         <div>
-          <h2 className={`text-green1 text-2xl font-bold my-4`}>
+          <h2
+            className={`absolute box-shadow-66 top-[2rem] left-[2rem] right-[2rem] text-green1 text-2xl font-bold w-full z-20`}
+          >
             {truncateDescription(task.title)}
           </h2>
+          <p
+            className={`text-white/20 text-[0.8rem] absolute top-[4rem] left-[2rem] z-20`}
+          >
+            {task.date}
+          </p>
         </div>
-        <p className="mb-4">{truncateDescription(task.description)}</p>
-        <div className={`flex justify-end w-full`}>
+        <div
+          className={`absolute top-[6rem] left-[2rem] pr-[1rem] overflow-y-auto min-h-full max-h-[60vh] pt-[1rem]`}
+        >
+          {truncateDescription(task.description)}
+        </div>
+
+        <div
+          className={`flex justify-end box-shadow-6 w-full absolute bottom-[0rem] p-[1rem] right-0 bg-darkPrimary`}
+        >
           <button
             type="button"
             onClick={() => navigate(`/edit/${task.id}`)}

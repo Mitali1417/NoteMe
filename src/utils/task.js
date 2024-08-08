@@ -1,15 +1,14 @@
-export const addTask = (title, description, date) => { // Add parameters
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    const newTask = {
-      id: Date.now(),
-      title,
-      description,
-      date,
-    };
-    tasks.push(newTask);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+export const addTask = (title, description, date) => {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const newTask = {
+    id: Date.now(),
+    title,
+    description,
+    date,
   };
-  
+  tasks.push(newTask);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
 
 export const editTask = (id, title, description, date) => {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
